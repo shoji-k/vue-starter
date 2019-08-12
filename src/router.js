@@ -20,6 +20,11 @@ export default new Router({
       path: '/about',
       name: 'about',
       component: () => import('./components/pages/About')
+    },
+    {
+      path: '/todolist',
+      name: 'todolist',
+      component: () => import('./components/pages/TodoList')
     }
   ]
 })
