@@ -1,9 +1,15 @@
 <template>
   <div class="todolist">
     <h2>Todo List</h2>
-    <div>
+    <div class="working-list">
       <ul>
-        <li v-for="todo in todos" :key="todo.id">{{ todo.name }}</li>
+        <li v-for="todo in working" :key="todo.id">{{ todo.name }}</li>
+      </ul>
+    </div>
+    <h2>Done</h2>
+    <div class="done-list">
+      <ul>
+        <li v-for="todo in done" :key="todo.id">{{ todo.name }}</li>
       </ul>
     </div>
   </div>
@@ -23,9 +29,22 @@ export default {
         {
           id: 2,
           name: 'work a little',
+          done: true
+        },
+        {
+          id: 3,
+          name: 'shopping',
           done: false
         }
       ]
+    }
+  },
+  computed: {
+    working: function () {
+      return this.todos.filter(todo => !todo.done)
+    },
+    done: function () {
+      return this.todos.filter(todo => todo.done)
     }
   },
   methods: {}
@@ -39,6 +58,9 @@ export default {
   }
   li {
     list-style: none
+  }
+  .working-list {
+    padding-bottom: 1rem;
   }
 }
 </style>
