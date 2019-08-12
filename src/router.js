@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Top from './components/pages/Top'
+import Top from './components/templates/Top'
 
 Vue.use(Router)
 
@@ -19,12 +19,12 @@ export default new Router({
     {
       path: '/about',
       name: 'about',
-      component: () => import('./components/pages/About')
+      component: () => import('./components/templates/About')
     },
     {
       path: '/todolist',
       name: 'todolist',
-      component: () => import('./components/pages/TodoList')
+      component: () => import('./components/templates/TodoList')
     }
   ]
 })
